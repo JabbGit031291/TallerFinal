@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+class VerificadorContraseña {
+    private String contraseñaAlmacenada;
+
+    // Constructor
+    public VerificadorContraseña(String contraseña) {
+        this.contraseñaAlmacenada = contraseña;
+    }
+
+    // Método para verificar la contraseña
+    public boolean verificar(String contraseñaUsuario) {
+        return contraseñaUsuario.equals(contraseñaAlmacenada);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Contraseña almacenada
+        VerificadorContraseña verificador = new VerificadorContraseña("miContraseña123");
+        
+        // Crear un objeto Scanner para leer la entrada del usuario
+        Scanner scanner = new Scanner(System.in);
+        
+        // Solicitar la contraseña al usuario
+        System.out.print("Introduce la contraseña: ");
+        String contraseñaUsuario = scanner.nextLine();
+        
+        // Verificar la contraseña
+        if (verificador.verificar(contraseñaUsuario)) {
+            System.out.println("Contraseña correcta!");
+        } else {
+            System.out.println("Contraseña incorrecta.");
+        }
+        
+        // Cerrar el scanner
+        scanner.close();
+    }
+}
