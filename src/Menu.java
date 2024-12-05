@@ -18,9 +18,9 @@ public class Menu {
             System.out.println("4. Actualizar productos");
             System.out.println("5. Eliminar productos");
             System.out.println("6. Mostrar productos");
-            System.out.println("7. Guardar cambios: ");
-            System.out.println("8. Cantidad de productos por categoria");
-            System.out.println("9. Calcular Precio de Producto");
+            System.out.println("7. Cantidad de productos por categoria");
+            System.out.println("8. Calcular Precio de Producto");
+            System.out.println("9. Guardar cambios: ");
             System.out.println("10. Salir");
             System.out.print("Elige una opción del menu: ");
             int opcion = sc.nextInt();
@@ -118,23 +118,23 @@ public class Menu {
                     break;
 
                 case 7:
-                    Invetario.almacenarProductoArchivo(Utilities.getNombreArchivo(), productos);
-                break;
-                case 8:
                     Map<String, Integer> productosPorCategoria = Invetario.cantidadCategoria(Utilities.getNombreArchivo());
                     System.out.println("Cantidad de productos por categoría:");
                     for (Map.Entry<String, Integer> entry : productosPorCategoria.entrySet()) {
                         System.out.println("Categoría: " + entry.getKey() + ", Total: " + entry.getValue());
                     }
                     break;
-                case 9:
-                        List<Producto> productoList = Invetario.leerProdArchivos(Utilities.getNombreArchivo());
+                    
+                case 8:
+                    List<Producto> productoList = Invetario.leerProdArchivos(Utilities.getNombreArchivo());
                     System.out.println("El precio total por productos es : ");
                     for (Producto producto : productoList){
                         double precitotal = producto.calcularPrecioTotal();
                         System.out.println("Producto: " + producto.getNombreProducto() + "Precio total: " + producto.getPrecioProducto());
                     }
                     break;
+                case 9:
+                    Invetario.almacenarProductoArchivo(Utilities.getNombreArchivo(), productos);
                 case 10:
                     System.out.println("Saliendo...");
                     sc.close();
